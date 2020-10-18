@@ -38,8 +38,42 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-    // write your solution here
-}
+    let arr = [];
+    let result = [];
+    let symbol = '';
+    let symbolMorse='';
+     for( let i = 0; i < expr.length; i = i + 10){
+      symbol = expr.slice(i,i+10);
+   
+      if(symbol=== '**********'){
+          symbol='';
+      }else{
+       let symbolMorse='';
+           for(let j = 0; j < symbol.length; j+=2){
+              
+                
+               switch(symbol.slice(j,j+2)){
+                   case '00': symbolMorse +=''; break;
+                   case '10': symbolMorse +='.'; break;
+                   case '11': symbolMorse +='-'; break;
+                   default: break;
+               }
+           }
+           symbol=symbolMorse;
+      }
+   
+       
+      arr.push(symbol);
+      console.log(arr);
+   
+      if(symbol){
+          result += MORSE_TABLE[symbol];;
+      }else{
+          result+=' '
+      }
+     }  
+      return result;
+   }
 
 module.exports = {
     decode
