@@ -41,7 +41,7 @@ function decode(expr) {
     let arr = [];
     let result = [];
     let symbol = '';
-    let symbolMorse='';
+
      for( let i = 0; i < expr.length; i = i + 10){
       symbol = expr.slice(i,i+10);
    
@@ -64,7 +64,6 @@ function decode(expr) {
    
        
       arr.push(symbol);
-      console.log(arr);
    
       if(symbol){
           result += MORSE_TABLE[symbol];;
